@@ -17,23 +17,23 @@ public class 删除链表的倒数第N个节点 {
         return dummy.next;
     }
 
+    class ListNode {
+        int val;
+        ListNode next;
 
-}
+        ListNode() {
+        }
 
+        ListNode(int val) {
+            this.val = val;
+        }
 
-class ListNode {
-    int val;
-    ListNode next;
-
-    ListNode() {
-    }
-
-    ListNode(int val) {
-        this.val = val;
-    }
-
-    ListNode(int val, ListNode next) {
-        this.val = val;
-        this.next = next;
+        ListNode(int val, ListNode next) {
+            this.val = val;
+            this.next = next;
+        }
     }
 }
+
+
+
