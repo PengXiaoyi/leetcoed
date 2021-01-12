@@ -1,13 +1,10 @@
-package com.checkpeng.leetcode;
+package com.checkpeng.leetcode.middle;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
-class Solution {
-
-    public static void main(String[] args) {
-        Solution solution = new Solution();
-        System.out.println(solution.subsetsWithDup(new int[]{1, 2, 2}));
-    }
+public class 子集II {
 
     public List<List<Integer>> subsetsWithDup(int[] nums) {
         // 先排序，方便后面去重
@@ -29,7 +26,4 @@ class Solution {
             common.remove(common.size() - 1);
         }
     }
-
-
 }
-
