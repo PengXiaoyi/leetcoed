@@ -1,14 +1,11 @@
-package com.checkpeng.leetcode;
+package com.checkpeng.leetcode.middle;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.HashSet;
+import java.util.Set;
 
-class Solution {
-
-    public static void main(String[] args) {
-        Solution solution = new Solution();
-        String[] a = {"cat","banana","dog","nana","walk","walker","dogwalker"};
-        solution.longestWord(a);
-    }
+public class 最长单词 {
 
     public String longestWord(String[] words) {
         Arrays.sort(words, new Comparator<String>() {
@@ -43,4 +40,3 @@ class Solution {
         return false;
     }
 }
-
