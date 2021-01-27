@@ -25,7 +25,7 @@ public class 最小覆盖子串 {
         while (rightIndex < s.length()) {
             now.put(s.charAt(rightIndex), now.getOrDefault(s.charAt(rightIndex), 0) + 1);
             // 左指针向右收缩
-            while (check() && leftIndex <= rightIndex) {
+            while (check() && leftIndex < rightIndex) {
                 if (rightIndex - leftIndex + 1 < minLen) {
                     minIndex = leftIndex;
                     minLen = rightIndex - leftIndex + 1;
