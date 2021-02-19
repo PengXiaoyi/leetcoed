@@ -22,7 +22,9 @@ public class EchoHandler implements Runnable {
 		try {
 			selector = Selector.open();
 			servChannel = ServerSocketChannel.open();
+			// 设置阻塞模式为非阻塞
 			servChannel.configureBlocking(false);
+			// 绑定端口
 			servChannel.socket().bind(new InetSocketAddress(port), 1024);
 			servChannel.register(selector, SelectionKey.OP_ACCEPT);
 			System.out.println("服务器在端口[" + port + "]等待客户请求......");
