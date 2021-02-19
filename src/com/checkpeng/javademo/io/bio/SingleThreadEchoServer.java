@@ -7,6 +7,9 @@ import java.io.PrintStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+/**
+ * 单线程的BIO服务端
+ */
 public class SingleThreadEchoServer {
 
 	private int port;

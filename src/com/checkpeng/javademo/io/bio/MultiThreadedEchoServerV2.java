@@ -16,6 +16,9 @@ import java.util.Map;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
+/**
+ * 基于线程池的BIO服务端
+ */
 public class MultiThreadedEchoServerV2 {
 	private int port;
 

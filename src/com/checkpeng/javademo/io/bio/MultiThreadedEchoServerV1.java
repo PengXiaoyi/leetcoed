@@ -3,8 +3,10 @@ package com.checkpeng.javademo.io.bio;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
- 
 
+/**
+ * 多线程的BIO服务端
+ */
 public class MultiThreadedEchoServerV1 {
 	private int port;
 	

@@ -7,6 +7,9 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
+/**
+ * 客户端
+ */
 public class EchoClient {
 	public static void main(String[] args) {
 

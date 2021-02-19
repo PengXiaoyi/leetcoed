@@ -6,6 +6,9 @@ import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.net.Socket;
 
+/**
+ * 服务端处理程序
+ */
 public class ThreadedServerHandler implements Runnable {
 	Socket clientSocket = null;
 	int clientNo = 0;
