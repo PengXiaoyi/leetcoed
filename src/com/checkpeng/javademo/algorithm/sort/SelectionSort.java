@@ -1,4 +1,4 @@
-package com.checkpeng.leetcode.sort;
+package com.checkpeng.javademo.algorithm.sort;
 
 /**
  * 选择排序：每次选一个最小的到前面来

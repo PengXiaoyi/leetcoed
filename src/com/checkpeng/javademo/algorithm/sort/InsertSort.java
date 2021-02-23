@@ -1,4 +1,4 @@
-package com.checkpeng.leetcode.sort;
+package com.checkpeng.javademo.algorithm.sort;
 
 /**
  * 插入排序：每次从后面拿一个数出来，插入到应该的位置
@@ -15,7 +15,7 @@ public class InsertSort {
         insertSort(arr);
     }
 
-    public static void insertSort(int[] arr) {
+    public static int[] insertSort(int[] arr) {
         int len = arr.length;
         for (int i = 1; i < len; i++) {
             // 找到自己应该插入的索引位置
@@ -27,5 +27,6 @@ public class InsertSort {
             }
             arr[j + 1] = temp;
         }
+        return arr;
     }
 }

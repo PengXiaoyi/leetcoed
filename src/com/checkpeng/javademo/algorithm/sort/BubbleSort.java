@@ -1,4 +1,4 @@
-package com.checkpeng.leetcode.sort;
+package com.checkpeng.javademo.algorithm.sort;
 
 public class BubbleSort {
 
