@@ -18,7 +18,7 @@ public class 二叉树的右视图 {
             if (nowNode != null) {
                 maxDepth = Math.max(maxDepth, depth);
 
-                nodeVal.put(depth, nowNode.val);
+                nodeVal.put(maxDepth, nowNode.val);
 
                 nodeQueue.add(nowNode.left);
                 nodeQueue.add(nowNode.right);
@@ -27,11 +27,11 @@ public class 二叉树的右视图 {
             }
 
         }
-        List<Integer> resule = new ArrayList<>();
-        for (int i = 0; i < maxDepth; i++) {
-            resule.add(nodeVal.get(depthQueue));
+        List<Integer> result = new ArrayList<>();
+        for (int i = 0; i <= maxDepth; i++) {
+            result.add(nodeVal.get(i));
         }
-        return resule;
+        return result;
     }
 
 
