@@ -8,7 +8,7 @@ package com.checkpeng.javademo.algorithm.sort;
  * 空间复杂度O(1)
  * 稳定排序
  */
-public class InsertSort {
+public class 插入排序 {
 
     public static void main(String[] args) {
         int arr[] = {9, 7, 6, 8, 5, 4, 3, 2, 1};

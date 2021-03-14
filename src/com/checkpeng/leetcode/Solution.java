@@ -5,49 +5,61 @@ import java.util.*;
 class Solution {
 
     public static void main(String[] args) {
-        Solution solution = new Solution();
-        System.out.println(solution.addStrings("1", "9"));
-
-    }
-
-    public String addStrings(String num1, String num2) {
-        String lowL, highL;
-        if (num1.length() > num2.length()) {
-            lowL = num2;
-            highL = num1;
-        } else {
-            lowL = num1;
-            highL = num2;
-        }
-        int i = highL.length() - 1;
-        int j = lowL.length() - 1;
-        int sub = 0;
-        StringBuilder result = new StringBuilder();
-        while (i >= 0 || sub != 0) {
-            int a = i >= 0 ? highL.charAt(i) - '0' : 0;
-            int b = j >= 0 ? lowL.charAt(j) - '0' : 0;
-            int temp = a + b + sub;
-            result.append(temp % 10);
-            sub = temp / 10;
-            i--;
-            j--;
-        }
-        return result.reverse().toString();
-    }
-
-    public int[] twoSum(int[] nums, int target) {
-        Map<Integer, Integer> map = new HashMap<>();
-        for (int i = 0; i < nums.length; i++) {
-            if (map.get(target - nums[i]) != null) {
-                int[] result = new int[2];
-                result[0] = i;
-                result[1] = map.get(target - nums[i]);
-                return result;
+        Scanner sc = new Scanner(System.in);
+        int ccy = 300;
+        while (sc.hasNextLine()) {
+            String s = sc.nextLine();
+            if (s.equals("")) {
+                break;
             }
-            map.put(nums[i], i);
+            String[] split = s.split(",");
+            int bookPrice = Integer.valueOf(split[0]);
+            int preDays = Integer.valueOf(split[1]);
+            int reDays = Integer.valueOf(split[2]);
+            // 钱少于当前书钱时，跳过借阅
+            if (ccy < bookPrice) {
+                continue;
+            }
+            int price = Math.min(bookPrice,getPrice(bookPrice, preDays, reDays));
+            ccy -= price;
         }
-        return null;
+        System.out.println(ccy);
     }
 
+    public static int getPrice(int bookPrice, int preDays, int reDats) {
+        int price = 0;
+        if (reDats > 15) {
+            price += get15Price(bookPrice, reDats);
+            price += getLowPrice(bookPrice, 15);
+        } else {
+            price += getLowPrice(bookPrice, reDats);
+        }
+        if (reDats > preDays) {
+            price += (reDats - preDays);
+        }
+        return price;
+    }
+
+    public static int get15Price(int bookPrice, int reDats) {
+        int days = reDats - 15;
+        if (bookPrice < 50) {
+            return days;
+        } else if (bookPrice >= 50 && bookPrice < 100) {
+            return 2 * days;
+        } else {
+            return 3 * days;
+        }
+    }
+
+    public static int getLowPrice(int bookPrice, int reDats) {
+        int days = reDats;
+        if (bookPrice < 50) {
+            return days;
+        } else if (bookPrice >= 50 && bookPrice < 100) {
+            return 3 * days;
+        } else {
+            return 5 * days;
+        }
+    }
 }
 
