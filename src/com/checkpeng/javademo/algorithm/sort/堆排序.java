@@ -6,54 +6,47 @@ package com.checkpeng.javademo.algorithm.sort;
  * 将堆顶元素R[1]与最后一个元素R[n]交换，此时得到新的无序区(R1,R2,……Rn-1)和新的有序区(Rn),且满足R[1,2…n-1]<=R[n]；
  * 由于交换后新的堆顶R[1]可能违反堆的性质，因此需要对当前无序区(R1,R2,……Rn-1)调整为新堆，然后再次将R[1]与无序区最后一个元素交换，得到新的无序区(R1,R2….Rn-2)和新的有序区(Rn-1,Rn)。不断重复此过程直到有序区的元素个数为n-1，则整个排序过程完成。
  */
-public class HeapSort {
+public class 堆排序 {
 
     public static void main(String[] args) {
-        int arr[] = {9, 7, 6, 8, 5, 4, 3, 2, 1};
+        int arr[] = {9, 74, 62, 8, 5, 4, 3, 1, 2, 12, 15};
         sort(arr);
     }
 
     public static int[] sort(int[] arr) {
-        // 对 arr 进行拷贝，不改变参数内容
+        // 建立大顶堆
+        buildMaxheap(arr);
 
-        int len = arr.length;
-
-        // 构建大顶堆
-        buildMaxHeap(arr, len);
-
-        // 每次从大顶堆把最大的元素拿出去，放到队列末
-        for (int i = len - 1; i > 0; i--) {
+        // 每次从堆顶取出最大元素放到最后,然后重新进行堆化
+        for (int i = arr.length - 1; i > 0; i--) {
             swap(arr, 0, i);
-            len--;
-            heapify(arr, 0, len);
+            heapify(arr, 0, i);
         }
         return arr;
     }
 
-    private static void buildMaxHeap(int[] arr, int len) {
-        for (int i = (int) Math.floor(len / 2); i >= 0; i--) {
-            heapify(arr, i, len);
+    public static void buildMaxheap(int[] arr) {
+        for (int i = (int) Math.floor(arr.length); i >= 0; i--) {
+            heapify(arr, i, arr.length);
         }
     }
 
-    private static void heapify(int[] arr, int i, int len) {
-        int left = 2 * i + 1;
-        int right = 2 * i + 2;
-        int largest = i;
-
-        if (left < len && arr[left] > arr[largest]) {
-            largest = left;
+    public static void heapify(int[] arr, int index, int len) {
+        int largeIndex = index;
+        int left = index * 2 + 1;
+        int right = index * 2 + 2;
+        if (left < len && arr[left] > arr[largeIndex]) {
+            largeIndex = left;
         }
-
-        if (right < len && arr[right] > arr[largest]) {
-            largest = right;
+        if (right < len && arr[right] > arr[largeIndex]) {
+            largeIndex = right;
         }
-
-        if (largest != i) {
-            swap(arr, i, largest);
-            heapify(arr, largest, len);
+        if (largeIndex != index) {
+            swap(arr, index, largeIndex);
+            heapify(arr, largeIndex, len);
         }
     }
+
 
     private static void swap(int[] arr, int i, int j) {
         int temp = arr[i];

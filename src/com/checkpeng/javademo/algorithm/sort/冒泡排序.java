@@ -1,6 +1,6 @@
 package com.checkpeng.javademo.algorithm.sort;
 
-public class BubbleSort {
+public class 冒泡排序 {
 
     public static void main(String[] args) {
         int arr[] = {9, 7, 6, 8, 5, 4, 3, 2, 1};
