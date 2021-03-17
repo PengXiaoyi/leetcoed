@@ -18,7 +18,6 @@ public class 希尔排序 {
     public static int[] shellSort(int[] arr) {
         int len = arr.length;
         for(int gap = len / 2; gap > 0; gap = gap / 2) {
-            // 注意：这里和动图演示的不一样，动图是分组执行，实际操作是多个分组交替执行
             for(int i = gap; i < len; i++) {
                 int j = i;
                 int current = arr[i];
